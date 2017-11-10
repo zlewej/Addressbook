@@ -53,7 +53,7 @@ AddressBook::AddressBook(int num)
 
 AddressBook::~AddressBook()
 {
-    delete [] list;
+    delete [] list;       // free's dynamically allocated memory
 }
 
 bool AddressBook::isEmpty() const
