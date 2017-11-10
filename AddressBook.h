@@ -51,11 +51,20 @@ AddressBook::AddressBook(int num)
     }
 }
 
+/**********************************
+           ~AddressBook
+ free's dynamically allocated memory
+***********************************/
 AddressBook::~AddressBook()
 {
     delete [] list;       // free's dynamically allocated memory
 }
 
+/*****************************************
+                isEmpty
+returns true if all used fields are set to
+false, true otherwise
+******************************************/
 bool AddressBook::isEmpty() const
 {
     bool found = true;
@@ -72,6 +81,11 @@ bool AddressBook::isEmpty() const
     return found;
 }
 
+/******************************************
+                  isFull
+ returns true if all used fields are set to
+ true, false otherwise.
+ ******************************************/
 bool AddressBook::isFull() const
 {
     bool found = true;
@@ -88,6 +102,11 @@ bool AddressBook::isFull() const
     return found;
 }
 
+/************************************
+             add
+  stores information in one of the 
+  unused elements
+ ************************************/
 void AddressBook::add(string n, string p)
 {
     for(int count = 0; count < cap; count++)
@@ -98,7 +117,12 @@ void AddressBook::add(string n, string p)
     }
 }
 
-void AddressBook::remove(string n) // perform a linear search
+/*****************************************
+                   Remove
+  removes the first matching Contact from
+  the array
+ *****************************************/
+void AddressBook::remove(string n) 
 {
     if(!isEmpty())
     {
@@ -118,6 +142,11 @@ void AddressBook::remove(string n) // perform a linear search
     }
 }
 
+/**********************************************
+                    Clear
+  empties the array by setting all the elements
+  used fields to false
+ **********************************************/
 void AddressBook::clear()
 {
     int count = 0;
@@ -129,6 +158,11 @@ void AddressBook::clear()
     }
 }
 
+/*******************************************
+                    find
+ returns the phone number of the first match
+ it finds, "NO MATCH" otherwise
+ *******************************************/
 string AddressBook::find(string n) const
 {
     for(int count = 0; count < cap; count++)
