@@ -165,12 +165,22 @@ void AddressBook::clear()
  *******************************************/
 string AddressBook::find(string n) const
 {
-    for(int count = 0; count < cap; count++)
-        if(list[count].name == n)
+    int count = -1;
+    bool found = false;
+    string number = "NO MATCH";
+    
+    while(count < cap && !found)
+    {
+        count++;
+        
+        if(list[count].name == n && list[count].used)
         {
-            return list[count].phone;
+            found = true;
+            number = list[count].phone;
         }
-    return "\nNO MATCH\n";
+    }
+    return number;
+
 }
 
 
